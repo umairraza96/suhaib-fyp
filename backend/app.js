@@ -23,8 +23,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const User = require("./models/user_model");
+const Club = require("./models/club_model");
 app.use("/api", require("./routes/user_routes"));
-
+app.use("/api", require("./routes/club_routes"));
 app.get("/api", (req, res) => {
   res.status(200).json("Hello World");
 });
