@@ -26,11 +26,15 @@ import {
   UncontrolledCarousel,
 } from "reactstrap";
 
+import axios from "axios";
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import NavigationBar from "components/Navbars/navbar";
 import ReactDatetime from "react-datetime";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory, useParams } from "react-router-dom";
+import { updateClub } from "redux/clubs/club.actions";
 
 const carouselItems = [
   {
@@ -54,6 +58,17 @@ let ps = null;
 
 export default function ProfilePage() {
   const [tabs, setTabs] = React.useState(1);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { user } = useSelector((state) => ({
+    user: state.user.currentUser,
+  }));
+
+  const [club] = useSelector((state) => state.clubs.clubs)?.filter(
+    (club) => club._id === id
+  );
+  const [bookingTime, setBookingTime] = React.useState("");
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -74,6 +89,28 @@ export default function ProfilePage() {
       document.body.classList.toggle("profile-page");
     };
   }, []);
+
+  const bookActivity = async (activity) => {
+    if (user) {
+      try {
+        const response = await axios.post("/api/club/booking", {
+          clubId: club._id,
+          activity: {
+            ...activity,
+            date: bookingTime,
+          },
+        });
+
+        console.log(response.data);
+        dispatch(updateClub(response.data));
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("You need to sign in before booking any activities");
+    }
+  };
+
   return (
     <>
       {/* <ExamplesNavbar /> */}
@@ -93,8 +130,10 @@ export default function ProfilePage() {
           <Container className="align-items-center">
             <Row>
               <Col lg="6" md="6">
-                <h1 className="profile-title text-left">Mike Scheinder</h1>
-                <h5 className="text-on-back">01</h5>
+                <h1 className="profile-title text-left">
+                  {club.clubName.toUpperCase()}
+                </h1>
+                <h5 className="text-on-back">-</h5>
                 <p className="profile-description">
                   Offices parties lasting outward nothing age few resolve.
                   Impression to discretion understood to we interested he
@@ -148,7 +187,7 @@ export default function ProfilePage() {
                       className="img-center img-fluid rounded-circle"
                       src={require("assets/img/mike.jpg").default}
                     />
-                    <h4 className="title">Transactions</h4>
+                    <h4 className="title">Overviews</h4>
                   </CardHeader>
                   <CardBody>
                     <Nav
@@ -166,23 +205,10 @@ export default function ProfilePage() {
                           }}
                           href="#pablo"
                         >
-                          Wallet
+                          Bookings
                         </NavLink>
                       </NavItem>
-                      <NavItem>
-                        <NavLink
-                          className={classnames({
-                            active: tabs === 2,
-                          })}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setTabs(2);
-                          }}
-                          href="#pablo"
-                        >
-                          Send
-                        </NavLink>
-                      </NavItem>
+
                       <NavItem>
                         <NavLink
                           className={classnames({
@@ -206,18 +232,25 @@ export default function ProfilePage() {
                         <Table className="tablesorter" responsive>
                           <thead className="text-primary">
                             <tr>
-                              <th className="header">COIN</th>
-                              <th className="header">AMOUNT</th>
-                              <th className="header">VALUE</th>
+                              <th className="header">Activity</th>
+                              {/* <th className="header">AMOUNT</th> */}
+                              <th className="header">Timeslot</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {club.bookedActivities.map((activity) => (
+                              <tr>
+                                <td>{activity.name}</td>
+                                <td>{activity.date}</td>
+                                {/* <td>64,53.30 USD</td> */}
+                              </tr>
+                            ))}
+                            {/* <tr>
                               <td>BTC</td>
                               <td>7.342</td>
                               <td>48,870.75 USD</td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                               <td>ETH</td>
                               <td>30.737</td>
                               <td>64,53.30 USD</td>
@@ -226,7 +259,7 @@ export default function ProfilePage() {
                               <td>XRP</td>
                               <td>19.242</td>
                               <td>18,354.96 USD</td>
-                            </tr>
+                            </tr> */}
                           </tbody>
                         </Table>
                       </TabPane>
@@ -288,99 +321,56 @@ export default function ProfilePage() {
             </Row>
           </Container>
         </div>
-        <div className="section">
-          <Container>
-            <Row className="justify-content-between">
-              <Col md="6">
-                <Row className="justify-content-between align-items-center">
-                  <UncontrolledCarousel items={carouselItems} />
-                </Row>
-              </Col>
-              <Col md="5">
-                <h1 className="profile-title text-left">Projects</h1>
-                <h5 className="text-on-back">02</h5>
-                <p className="profile-description text-left">
-                  An artist of considerable range, Ryan — the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                  performs and records all of his own music, giving it a warm,
-                  intimate feel with a solid groove structure. An artist of
-                  considerable range.
-                </p>
-                <div className="btn-wrapper pt-3">
-                  <Button
-                    className="btn-simple"
-                    color="primary"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="tim-icons icon-book-bookmark" /> Bookmark
-                  </Button>
-                  <Button
-                    className="btn-simple"
-                    color="info"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="tim-icons icon-bulb-63" /> Check it!
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-        {/* Mine */}
-        <div className="section">
-          <Container>
-            <Row className="justify-content-between">
-              <Col md="6">
-                <Row className="justify-content-between align-items-center">
-                  <UncontrolledCarousel items={carouselItems} />
-                </Row>
-              </Col>
-              <Col md="5">
-                <h1 className="profile-title text-left">Projects</h1>
-                <h5 className="text-on-back">02</h5>
-                <p className="profile-description text-left">
-                  An artist of considerable range, Ryan — the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                  performs and records all of his own music, giving it a warm,
-                  intimate feel with a solid groove structure. An artist of
-                  considerable range.
-                </p>
-                <div className="btn-wrapper pt-3">
-                  <div className="datepicker-container">
-                    <FormGroup>
-                      <ReactDatetime
-                        inputProps={{
-                          className: "form-control",
-                          placeholder: "Date Picker Here",
-                        }}
-                      />
-                    </FormGroup>
+        {club.activities.map((activity, index) => (
+          <div className="section">
+            <Container>
+              <Row className="justify-content-between">
+                <Col md="6">
+                  <Row className="justify-content-between align-items-center">
+                    <UncontrolledCarousel items={carouselItems} />
+                  </Row>
+                </Col>
+                <Col md="5">
+                  <h1 className="profile-title text-left">{activity.name}</h1>
+                  <h5 className="text-on-back">
+                    {index < 10 ? "0" + (index + 1) : index + 1}
+                  </h5>
+                  <p className="profile-description text-left">
+                    An artist of considerable range, Ryan — the name taken by
+                    Melbourne-raised, Brooklyn-based Nick Murphy — writes,
+                    performs and records all of his own music, giving it a warm,
+                    intimate feel with a solid groove structure. An artist of
+                    considerable range.
+                  </p>
+                  <div className="btn-wrapper pt-3">
+                    <div className="datepicker-container">
+                      <FormGroup>
+                        <ReactDatetime
+                          inputProps={{
+                            className: "form-control",
+                            placeholder: "Date Picker Here",
+                          }}
+                          onChange={(e) => setBookingTime(e.toString())}
+                        />
+                      </FormGroup>
+                    </div>
+
+                    <Button
+                      className="btn-simple"
+                      color="primary"
+                      href="#pablo"
+                      onClick={() => bookActivity(activity)}
+                    >
+                      <i className="tim-icons icon-book-bookmark" /> Book Now!
+                    </Button>
                   </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        ))}
+        {/* Mine */}
 
-                  <Button
-                    className="btn-simple"
-                    color="primary"
-                    href="#pablo"
-                    onClick={(e) => console.log("open date picker here")}
-                  >
-                    <i className="tim-icons icon-book-bookmark" /> Book Now!
-                  </Button>
-
-                  {/* <Button
-                    className="btn-simple"
-                    color="info"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="tim-icons icon-bulb-63" /> Check it!
-                  </Button> */}
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
         <section className="section">
           <Container>
             <Row>
@@ -484,3 +474,44 @@ export default function ProfilePage() {
     </>
   );
 }
+
+// <div className="section">
+//   <Container>
+//     <Row className="justify-content-between">
+//       <Col md="6">
+//         <Row className="justify-content-between align-items-center">
+//           <UncontrolledCarousel items={carouselItems} />
+//         </Row>
+//       </Col>
+//       <Col md="5">
+//         <h1 className="profile-title text-left">Projects</h1>
+//         <h5 className="text-on-back">02</h5>
+//         <p className="profile-description text-left">
+//           An artist of considerable range, Ryan — the name taken by
+//           Melbourne-raised, Brooklyn-based Nick Murphy — writes,
+//           performs and records all of his own music, giving it a warm,
+//           intimate feel with a solid groove structure. An artist of
+//           considerable range.
+//         </p>
+//         <div className="btn-wrapper pt-3">
+//           <Button
+//             className="btn-simple"
+//             color="primary"
+//             href="#pablo"
+//             onClick={(e) => e.preventDefault()}
+//           >
+//             <i className="tim-icons icon-book-bookmark" /> Bookmark
+//           </Button>
+//           <Button
+//             className="btn-simple"
+//             color="info"
+//             href="#pablo"
+//             onClick={(e) => e.preventDefault()}
+//           >
+//             <i className="tim-icons icon-bulb-63" /> Check it!
+//           </Button>
+//         </div>
+//       </Col>
+//     </Row>
+//   </Container>
+// </div>

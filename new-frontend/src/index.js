@@ -47,7 +47,7 @@ ReactDOM.render(
             render={(props) => <RegisterPage {...props} />}
           />
           <Route
-            path="/profile-page"
+            path="/profile-page/:id"
             render={(props) => <ProfilePage {...props} />}
           />
           <Redirect from="/" to="/landing-page" />

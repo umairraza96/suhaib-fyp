@@ -7,7 +7,7 @@ import clubReducer from "./clubs/club.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user"],
+  whitelist: ["user", "clubs"],
 };
 
 const rootReducer = combineReducers({

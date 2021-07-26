@@ -10,6 +10,10 @@ export const fetchClubFailure = (error) => ({
   payload: error,
 });
 
+export const updateClub = (club) => ({
+  type: ClubActionTypes.UPDATE_CLUB,
+  payload: club,
+});
 // export const checkUserSession = () => ({
 //   type: UserActionTypes.CHECK_USER_SESSION,
 // });

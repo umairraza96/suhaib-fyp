@@ -518,7 +518,9 @@ export default function LandingPage() {
                           <Button
                             className="btn-simple"
                             color="primary"
-                            onClick={() => history.push("/profile-page")}
+                            onClick={() =>
+                              history.push(`/profile-page/${club._id}`)
+                            }
                           >
                             Explore
                           </Button>

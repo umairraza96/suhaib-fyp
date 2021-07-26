@@ -21,6 +21,10 @@ router.delete("/club/:clubId", async (req, res) => {
   club.delete_a_club(req, res);
 });
 
+router.post("/club/booking", async (req, res) => {
+  club.book_a_activity(req, res);
+});
+
 // router.delete("/clubs", async (req, res) => {
 //   club.list_all_deleted_clubs(req, res);
 // });

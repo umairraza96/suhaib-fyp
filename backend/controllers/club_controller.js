@@ -83,3 +83,25 @@ exports.delete_a_club = function (req, res) {
     console.log(error);
   }
 };
+
+exports.book_a_activity = function (req, res) {
+  try {
+    Task.findById(req.body.clubId, (err, doc) => {
+      doc.bookedActivities.push(req.body.activity);
+      doc.save();
+      res.status(200).json(doc);
+    });
+    // Task.findOneAndUpdate(
+    //   { _id: req.body.clubId },
+    //   req.body,
+    //   { new: true },
+    //   function (err, event) {
+    //     if (err) res.status(200).send(err);
+    //     res.status(200).json(event);
+    //   }
+    // );
+  } catch (error) {
+    res.status(400).send("Request Failed");
+    console.log(error);
+  }
+};

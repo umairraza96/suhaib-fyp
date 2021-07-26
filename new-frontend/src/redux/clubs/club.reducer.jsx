@@ -11,6 +11,12 @@ const clubReducer = (state = INITIAL_STATE, action) => {
       return { ...state, error: action.payload };
     case ClubActionTypes.FETCH_CLUB_SUCCESS:
       return { ...state, clubs: action.payload, error: null };
+    case ClubActionTypes.UPDATE_CLUB:
+      const oldClubs = state.clubs.filter(
+        (club) => club._id !== action.payload._id
+      );
+      oldClubs.push(action.payload);
+      return { ...state, clubs: oldClubs };
     default:
       return state;
   }
