@@ -20,41 +20,14 @@ export default function Footer() {
           <Col md="3">
             <h1 className="title">CMS•</h1>
           </Col>
-          {/* <Col md="3">
-            <Nav>
-              <NavItem>
-                <NavLink to="/" tag={Link}>
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/landing-page" tag={Link}>
-                  Landing
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/register-page" tag={Link}>
-                  Register
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/profile-page" tag={Link}>
-                  Profile
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Col> */}
+
           <Col md="5">
             <Nav>
               <NavItem>
-                <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
-                  Contact Us
-                </NavLink>
+                <NavLink href="#">Contact Us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://creative-tim.com/about-us?ref=blkdsr-footer">
-                  About Us
-                </NavLink>
+                <NavLink href="#">About Us</NavLink>
               </NavItem>
               {/* <NavItem>
                 <NavLink href="https://creative-tim.com/blog?ref=blkdsr-footer">
@@ -62,9 +35,7 @@ export default function Footer() {
                 </NavLink>
               </NavItem> */}
               <NavItem>
-                <NavLink href="https://opensource.org/licenses/MIT">
-                  License
-                </NavLink>
+                <NavLink href="#">License</NavLink>
               </NavItem>
             </Nav>
           </Col>
@@ -74,7 +45,7 @@ export default function Footer() {
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://twitter.com/creativetim"
+                href="#"
                 id="tooltip622135962"
                 target="_blank"
               >
@@ -86,7 +57,7 @@ export default function Footer() {
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://www.facebook.com/creativetim"
+                href="#"
                 id="tooltip230450801"
                 target="_blank"
               >
@@ -98,7 +69,7 @@ export default function Footer() {
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://dribbble.com/creativetim"
+                href="#"
                 id="tooltip318450378"
                 target="_blank"
               >

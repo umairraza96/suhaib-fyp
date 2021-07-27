@@ -238,24 +238,8 @@ export default function ProfilePage() {
                               <tr>
                                 <td>{activity.name}</td>
                                 <td>{activity.date}</td>
-                                {/* <td>64,53.30 USD</td> */}
                               </tr>
                             ))}
-                            {/* <tr>
-                              <td>BTC</td>
-                              <td>7.342</td>
-                              <td>48,870.75 USD</td>
-                            </tr> */}
-                            {/* <tr>
-                              <td>ETH</td>
-                              <td>30.737</td>
-                              <td>64,53.30 USD</td>
-                            </tr>
-                            <tr>
-                              <td>XRP</td>
-                              <td>19.242</td>
-                              <td>18,354.96 USD</td>
-                            </tr> */}
                           </tbody>
                         </Table>
                       </TabPane>
@@ -325,7 +309,7 @@ export default function ProfilePage() {
                   <Row className="justify-content-between align-items-center">
                     <UncontrolledCarousel
                       items={
-                        activity?.pictures?.lenght > 0
+                        activity?.pictures?.length > 0
                           ? activity.pictures
                           : carouselItems
                       }
@@ -357,14 +341,17 @@ export default function ProfilePage() {
                       activity={activity}
                       bookActivity={bookActivity}
                     />
-                    {/* <Button
+                    <Button
                       className="btn-simple"
-                      color="primary"
+                      color="info"
                       href="#pablo"
-                      onClick={() => bookActivity(activity)}
+                      style={{ marginLeft: 10 }}
+                      // onClick={}
+                      disabled
                     >
-                      <i className="tim-icons icon-book-bookmark" /> Book Now!
-                    </Button> */}
+                      <i className="tim-icons icon-book-bookmark" />{" "}
+                      {activity.price}
+                    </Button>
                   </div>
                 </Col>
               </Row>
@@ -472,44 +459,3 @@ export default function ProfilePage() {
     </>
   );
 }
-
-// <div className="section">
-//   <Container>
-//     <Row className="justify-content-between">
-//       <Col md="6">
-//         <Row className="justify-content-between align-items-center">
-//           <UncontrolledCarousel items={carouselItems} />
-//         </Row>
-//       </Col>
-//       <Col md="5">
-//         <h1 className="profile-title text-left">Projects</h1>
-//         <h5 className="text-on-back">02</h5>
-//         <p className="profile-description text-left">
-//           An artist of considerable range, Ryan — the name taken by
-//           Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-//           performs and records all of his own music, giving it a warm,
-//           intimate feel with a solid groove structure. An artist of
-//           considerable range.
-//         </p>
-//         <div className="btn-wrapper pt-3">
-//           <Button
-//             className="btn-simple"
-//             color="primary"
-//             href="#pablo"
-//             onClick={(e) => e.preventDefault()}
-//           >
-//             <i className="tim-icons icon-book-bookmark" /> Bookmark
-//           </Button>
-//           <Button
-//             className="btn-simple"
-//             color="info"
-//             href="#pablo"
-//             onClick={(e) => e.preventDefault()}
-//           >
-//             <i className="tim-icons icon-bulb-63" /> Check it!
-//           </Button>
-//         </div>
-//       </Col>
-//     </Row>
-//   </Container>
-// </div>
