@@ -16,6 +16,11 @@ import {
   Col,
 } from "reactstrap";
 
+import Club from "../../assets/img/club.jpg";
+import Golf from "../../assets/img/golf.jpg";
+import Swim from "../../assets/img/swimmingpool.jpg";
+import Chalet from "../../assets/img/chalet.jpeg";
+import CreakClub from "../../assets/img/creekclub.png";
 // core components
 import Footer from "components/Footer/Footer.js";
 
@@ -87,18 +92,16 @@ export default function LandingPage() {
             <Row className="row-grid justify-content-between align-items-center text-left">
               <Col lg="6" md="6">
                 <h1 className="text-white">
-                  We keep your coin <br />
-                  <span className="text-white">secured</span>
+                  Welcome to CMS <br />
+                  <span className="text-white"> Elite </span>
                 </h1>
                 <p className="text-white mb-3">
-                  A wonderful serenity has taken possession of my entire soul,
-                  like these sweet mornings of spring which I enjoy with my
-                  whole heart. I am alone, and feel...
+                  A platform molded for interaction and expriences
+                  <br />
+                  Lets start your adventure today.
                 </p>
                 <div className="btn-wrapper mb-3">
-                  <p className="category text-success d-inline">
-                    From 9.99%/mo
-                  </p>
+                  <p className="category text-success d-inline">From 10k/mo</p>
                   <Button
                     className="btn-link"
                     color="success"
@@ -159,18 +162,7 @@ export default function LandingPage() {
                       <Card className="card-stats">
                         <CardBody>
                           <Row>
-                            <Col md="4" xs="5">
-                              <div className="icon-big text-center icon-warning">
-                                <i className="tim-icons icon-trophy text-warning" />
-                              </div>
-                            </Col>
-                            <Col md="8" xs="7">
-                              <div className="numbers">
-                                <CardTitle tag="p">3,237</CardTitle>
-                                <p />
-                                <p className="card-category">Awards</p>
-                              </div>
-                            </Col>
+                            <img src={Club} alt="asdasd"></img>
                           </Row>
                         </CardBody>
                       </Card>
@@ -179,18 +171,7 @@ export default function LandingPage() {
                       <Card className="card-stats upper bg-default">
                         <CardBody>
                           <Row>
-                            <Col md="4" xs="5">
-                              <div className="icon-big text-center icon-warning">
-                                <i className="tim-icons icon-coins text-white" />
-                              </div>
-                            </Col>
-                            <Col md="8" xs="7">
-                              <div className="numbers">
-                                <CardTitle tag="p">3,653</CardTitle>
-                                <p />
-                                <p className="card-category">Commits</p>
-                              </div>
-                            </Col>
+                            <img src={Golf} />
                           </Row>
                         </CardBody>
                       </Card>
@@ -201,18 +182,7 @@ export default function LandingPage() {
                       <Card className="card-stats">
                         <CardBody>
                           <Row>
-                            <Col md="4" xs="5">
-                              <div className="icon-big text-center icon-warning">
-                                <i className="tim-icons icon-gift-2 text-info" />
-                              </div>
-                            </Col>
-                            <Col md="8" xs="7">
-                              <div className="numbers">
-                                <CardTitle tag="p">593</CardTitle>
-                                <p />
-                                <p className="card-category">Presents</p>
-                              </div>
-                            </Col>
+                            <img src={Swim} />
                           </Row>
                         </CardBody>
                       </Card>
@@ -221,18 +191,7 @@ export default function LandingPage() {
                       <Card className="card-stats">
                         <CardBody>
                           <Row>
-                            <Col md="4" xs="5">
-                              <div className="icon-big text-center icon-warning">
-                                <i className="tim-icons icon-credit-card text-success" />
-                              </div>
-                            </Col>
-                            <Col md="8" xs="7">
-                              <div className="numbers">
-                                <CardTitle tag="p">10,783</CardTitle>
-                                <p />
-                                <p className="card-category">Forks</p>
-                              </div>
-                            </Col>
+                            <img src={Chalet} height="300px" width="250px" />
                           </Row>
                         </CardBody>
                       </Card>
@@ -242,19 +201,23 @@ export default function LandingPage() {
                 <Col md="6">
                   <div className="pl-md-5">
                     <h1>
-                      Large <br />
-                      Achivements
+                      Facilities <br />
+                      &<br />
+                      Amenities
                     </h1>
                     <p>
-                      I should be capable of drawing a single stroke at the
-                      present moment; and yet I feel that I never was a greater
-                      artist than now.
+                      Collaborated with multiple clubs throughout karachi
+                      <br />
+                      Provided with top quality services / facilities / food.{" "}
+                      <br />
+                      Enchancing modern day interaction / experiences. <br />
+                      Changing the way technology is being consumed.
                     </p>
                     <br />
                     <p>
-                      When, while the lovely valley teems with vapour around me,
-                      and the meridian sun strikes the upper surface of the
-                      impenetrable foliage of my trees, and but a few stray.
+                      Country Club Experience / Golfing <br />
+                      Swimming / Gym <br />
+                      Dinning / Resorts
                     </p>
                     <br />
                     <a
@@ -297,12 +260,14 @@ export default function LandingPage() {
                       <div className="icon icon-primary">
                         <i className="tim-icons icon-money-coins" />
                       </div>
-                      <h4 className="info-title">Low Commission</h4>
+                      <h4 className="info-title">Payment</h4>
                       <hr className="line-primary" />
                       <p>
-                        Divide details about your work into parts. Write a few
-                        lines about each one. A paragraph describing a feature
-                        will.
+                        Online payment of selected activities.
+                        <br />
+                        Easy Stripe Integrated Method.
+                        <br />
+                        100% Safe & Secure. <br />
                       </p>
                     </div>
                   </Col>
@@ -311,12 +276,15 @@ export default function LandingPage() {
                       <div className="icon icon-warning">
                         <i className="tim-icons icon-chart-pie-36" />
                       </div>
-                      <h4 className="info-title">High Incomes</h4>
+                      <h4 className="info-title">Planning</h4>
                       <hr className="line-warning" />
                       <p>
-                        Divide details about your product or agency work into
-                        parts. Write a few lines about each one. A paragraph
-                        describing feature will be a feature.
+                        Planning your activities.
+                        <br />
+                        No waiting No Worries.
+                        <br />
+                        Fast and Smooth.
+                        <br />
                       </p>
                     </div>
                   </Col>
@@ -325,12 +293,12 @@ export default function LandingPage() {
                       <div className="icon icon-success">
                         <i className="tim-icons icon-single-02" />
                       </div>
-                      <h4 className="info-title">Verified People</h4>
+                      <h4 className="info-title">Interaction</h4>
                       <hr className="line-success" />
                       <p>
-                        Divide details about your product or agency work into
-                        parts. Write a few lines about each one. A paragraph
-                        describing be enough.
+                        Interaction with new People. <br />
+                        Embracing the culture. <br />
+                        Opening new doors of opportunities. <br />
                       </p>
                     </div>
                   </Col>
@@ -347,18 +315,18 @@ export default function LandingPage() {
           />
           <Container>
             <Row className="row-grid justify-content-between">
-              <Col md="5">
+              <Col md="6">
                 <img
                   alt="..."
                   className="img-fluid floating"
-                  src={require("assets/img/chester-wade.jpg").default}
+                  src={require("assets/img/marina.jpg").default}
                 />
                 <Card className="card-stats bg-danger">
                   <CardBody>
                     <div className="justify-content-center">
                       <div className="numbers">
-                        <CardTitle tag="p">100%</CardTitle>
-                        <p className="card-category text-white">Safe</p>
+                        <CardTitle tag="p">Best</CardTitle>
+                        <p className="card-category text-white">Food</p>
                       </div>
                     </div>
                   </CardBody>
@@ -367,10 +335,8 @@ export default function LandingPage() {
                   <CardBody>
                     <div className="justify-content-center">
                       <div className="numbers">
-                        <CardTitle tag="p">573 K</CardTitle>
-                        <p className="card-category text-white">
-                          Satisfied customers
-                        </p>
+                        <CardTitle tag="p">Remarkable</CardTitle>
+                        <p className="card-category text-white">View</p>
                       </div>
                     </div>
                   </CardBody>
@@ -379,8 +345,8 @@ export default function LandingPage() {
                   <CardBody>
                     <div className="justify-content-center">
                       <div className="numbers">
-                        <CardTitle tag="p">10 425</CardTitle>
-                        <p className="card-category text-white">Business</p>
+                        <CardTitle tag="p">Served</CardTitle>
+                        <p className="card-category text-white"></p>
                       </div>
                     </div>
                   </CardBody>
@@ -389,11 +355,16 @@ export default function LandingPage() {
               <Col md="6">
                 <div className="px-md-5">
                   <hr className="line-success" />
-                  <h3>Awesome features</h3>
+                  <h3>Features</h3>
                   <p>
-                    The design system comes with three pre-built pages to help
-                    you get started faster. You can change the text and images
-                    and you're good to go.
+                    Best dishes served.
+                    <br />
+                    Hoteling like never before.
+                    <br />
+                    A sea side view to enjoy the evening.
+                    <br />
+                    Family & Friendly environment.
+                    <br />
                   </p>
                   <ul className="list-unstyled mt-5">
                     <li className="py-2">
@@ -402,7 +373,7 @@ export default function LandingPage() {
                           <i className="tim-icons icon-vector" />
                         </div>
                         <div className="ml-3">
-                          <h6>Carefully crafted components</h6>
+                          <h6>Carefully crafted dishes</h6>
                         </div>
                       </div>
                     </li>
@@ -412,7 +383,7 @@ export default function LandingPage() {
                           <i className="tim-icons icon-tap-02" />
                         </div>
                         <div className="ml-3">
-                          <h6>Amazing page examples</h6>
+                          <h6>Single click payment</h6>
                         </div>
                       </div>
                     </li>
@@ -422,7 +393,7 @@ export default function LandingPage() {
                           <i className="tim-icons icon-single-02" />
                         </div>
                         <div className="ml-3">
-                          <h6>Super friendly support team</h6>
+                          <h6>Family & Friendly environment</h6>
                         </div>
                       </div>
                     </li>
@@ -449,7 +420,7 @@ export default function LandingPage() {
                 <Row>
                   <Col className="text-left" sm="6">
                     <hr className="line-info" />
-                    <h5 className="card-category">Total Investments</h5>
+                    <h5 className="card-category">Work Life balance</h5>
                     <CardTitle tag="h2">Performance</CardTitle>
                   </Col>
                 </Row>
@@ -476,7 +447,7 @@ export default function LandingPage() {
               <Col md="4">
                 <hr className="line-info" />
                 <h1>
-                  Choose the coin{" "}
+                  Choose the club{" "}
                   <span className="text-info">that fits your needs</span>
                 </h1>
               </Col>
@@ -490,7 +461,7 @@ export default function LandingPage() {
                           <img
                             alt="..."
                             className="img-center img-fluid"
-                            src={require("assets/img/bitcoin.png").default}
+                            src={club.picture}
                           />
                         </CardHeader>
                         <CardBody>

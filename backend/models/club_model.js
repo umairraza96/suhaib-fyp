@@ -10,6 +10,7 @@ var clubSchema = new Schema(
     activities: [{ type: Object, default: {} }],
     bookedActivities: [{ type: Object, default: {} }],
     picture: { type: String, default: "" },
+    description: { type: String, default: "" },
     facilities: [{ type: String, default: "" }],
     isDeleted: { type: Boolean, default: false },
   },

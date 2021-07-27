@@ -135,17 +135,12 @@ export default function ProfilePage() {
                   {club.clubName.toUpperCase()}
                 </h1>
                 <h5 className="text-on-back">-</h5>
-                <p className="profile-description">
-                  Offices parties lasting outward nothing age few resolve.
-                  Impression to discretion understood to we interested he
-                  excellence. Him remarkably use projection collecting. Going
-                  about eat forty world has round miles.
-                </p>
+                <p className="profile-description">{club.description}</p>
                 <div className="btn-wrapper profile pt-3">
                   <Button
                     className="btn-icon btn-round"
                     color="twitter"
-                    href="https://twitter.com/creativetim"
+                    href="#"
                     id="tooltip639225725"
                     target="_blank"
                   >
@@ -157,7 +152,7 @@ export default function ProfilePage() {
                   <Button
                     className="btn-icon btn-round"
                     color="facebook"
-                    href="https://www.facebook.com/creativetim"
+                    href="#"
                     id="tooltip982846143"
                     target="_blank"
                   >
@@ -169,7 +164,7 @@ export default function ProfilePage() {
                   <Button
                     className="btn-icon btn-round"
                     color="dribbble"
-                    href="https://dribbble.com/creativetim"
+                    href="#"
                     id="tooltip951161185"
                     target="_blank"
                   >
@@ -186,7 +181,7 @@ export default function ProfilePage() {
                     <img
                       alt="..."
                       className="img-center img-fluid rounded-circle"
-                      src={require("assets/img/mike.jpg").default}
+                      src={club.picture}
                     />
                     <h4 className="title">Overviews</h4>
                   </CardHeader>
@@ -328,7 +323,7 @@ export default function ProfilePage() {
               <Row className="justify-content-between">
                 <Col md="6">
                   <Row className="justify-content-between align-items-center">
-                    <UncontrolledCarousel items={carouselItems} />
+                    <UncontrolledCarousel items={activity.pictures} />
                   </Row>
                 </Col>
                 <Col md="5">
@@ -337,11 +332,7 @@ export default function ProfilePage() {
                     {index < 10 ? "0" + (index + 1) : index + 1}
                   </h5>
                   <p className="profile-description text-left">
-                    An artist of considerable range, Ryan — the name taken by
-                    Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                    performs and records all of his own music, giving it a warm,
-                    intimate feel with a solid groove structure. An artist of
-                    considerable range.
+                    {activity.description}
                   </p>
                   <div className="btn-wrapper pt-3">
                     <div className="datepicker-container">
@@ -383,7 +374,7 @@ export default function ProfilePage() {
                 <Card className="card-plain">
                   <CardHeader>
                     <h1 className="profile-title text-left">Contact</h1>
-                    <h5 className="text-on-back">03</h5>
+                    <h5 className="text-on-back">00</h5>
                   </CardHeader>
                   <CardBody>
                     <Form>
