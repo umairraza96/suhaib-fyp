@@ -263,24 +263,6 @@ export default function RegisterPage() {
                       </CardHeader>
                       <CardBody>
                         <Form className="form">
-                          {/* <InputGroup
-                          className={classnames({
-                            "input-group-focus": fullNameFocus,
-                          })}
-                        >
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="tim-icons icon-single-02" />
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            placeholder="Full Name"
-                            type="text"
-                            onFocus={(e) => setFullNameFocus(true)}
-                            onBlur={(e) => setFullNameFocus(false)}
-                            onChange={(e)=>setUserDetails({...userDetails,userName:e.target.value})}
-                          />
-                        </InputGroup> */}
                           <InputGroup
                             className={classnames({
                               "input-group-focus": emailFocus,
@@ -335,19 +317,6 @@ export default function RegisterPage() {
                               Don't have an account sign up!
                             </Label>
                           </FormGroup>
-                          {/* <FormGroup check className="text-left ml-2">
-                          <Label check>
-                            <Input type="checkbox" />
-                            <span className="form-check-sign" />I agree to the{" "}
-                            <a
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              terms and conditions
-                            </a>
-                            .
-                          </Label>
-                        </FormGroup> */}
                         </Form>
                       </CardBody>
                       <CardFooter>
