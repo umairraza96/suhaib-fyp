@@ -1,5 +1,5 @@
 "use strict";
-
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 var mongoose = require("mongoose"),
   Task = mongoose.model("Club");
 
@@ -91,15 +91,26 @@ exports.book_a_activity = function (req, res) {
       doc.save();
       res.status(200).json(doc);
     });
-    // Task.findOneAndUpdate(
-    //   { _id: req.body.clubId },
-    //   req.body,
-    //   { new: true },
-    //   function (err, event) {
-    //     if (err) res.status(200).send(err);
-    //     res.status(200).json(event);
-    //   }
-    // );
+  } catch (error) {
+    res.status(400).send("Request Failed");
+    console.log(error);
+  }
+};
+
+exports.payment = function (req, res) {
+  try {
+    const body = {
+      source: req.body.token.id,
+      amount: req.body.amount,
+      currency: "usd",
+    };
+    stripe.charges.create(body, (stripeErr, stripeRes) => {
+      if (stripeErr) {
+        res.status(500).send({ error: stripeErr });
+      } else {
+        res.status(200).send({ success: stripeRes });
+      }
+    });
   } catch (error) {
     res.status(400).send("Request Failed");
     console.log(error);

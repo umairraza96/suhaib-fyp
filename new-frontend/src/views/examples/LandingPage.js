@@ -508,9 +508,6 @@ export default function LandingPage() {
                               {club.facilities.map((facility) => (
                                 <ListGroupItem>{facility}</ListGroupItem>
                               ))}
-                              {/* <ListGroupItem>Sports & Amusements</ListGroupItem>
-                              <ListGroupItem>Food & Refreshments</ListGroupItem>
-                              <ListGroupItem>24/7 Support</ListGroupItem> */}
                             </ListGroup>
                           </Row>
                         </CardBody>
@@ -529,7 +526,17 @@ export default function LandingPage() {
                     </Col>
                   ))
                 : null}
-              {/* <Col md="4">
+            </Row>
+          </Container>
+        </section>
+        <Footer />
+      </div>
+    </>
+  );
+}
+
+{
+  /* <Col md="4">
                 <Card className="card-coin card-plain">
                   <CardHeader>
                     <img
@@ -592,12 +599,5 @@ export default function LandingPage() {
                     </Button>
                   </CardFooter>
                 </Card>
-              </Col> */}
-            </Row>
-          </Container>
-        </section>
-        <Footer />
-      </div>
-    </>
-  );
+              </Col> */
 }

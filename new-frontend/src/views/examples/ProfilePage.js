@@ -35,6 +35,7 @@ import ReactDatetime from "react-datetime";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { updateClub } from "redux/clubs/club.actions";
+import StripeCheckoutButton from "components/stripe-button/stripe-button";
 
 const carouselItems = [
   {
@@ -354,15 +355,19 @@ export default function ProfilePage() {
                         />
                       </FormGroup>
                     </div>
-
-                    <Button
+                    <StripeCheckoutButton
+                      price={parseInt(activity.price)}
+                      activity={activity}
+                      bookActivity={bookActivity}
+                    />
+                    {/* <Button
                       className="btn-simple"
                       color="primary"
                       href="#pablo"
                       onClick={() => bookActivity(activity)}
                     >
                       <i className="tim-icons icon-book-bookmark" /> Book Now!
-                    </Button>
+                    </Button> */}
                   </div>
                 </Col>
               </Row>
