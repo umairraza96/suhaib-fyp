@@ -323,7 +323,13 @@ export default function ProfilePage() {
               <Row className="justify-content-between">
                 <Col md="6">
                   <Row className="justify-content-between align-items-center">
-                    <UncontrolledCarousel items={activity.pictures} />
+                    <UncontrolledCarousel
+                      items={
+                        activity?.pictures?.lenght > 0
+                          ? activity.pictures
+                          : carouselItems
+                      }
+                    />
                   </Row>
                 </Col>
                 <Col md="5">
@@ -402,7 +408,7 @@ export default function ProfilePage() {
                         <Col md="6">
                           <FormGroup>
                             <label>Company</label>
-                            <Input defaultValue="CreativeTim" type="text" />
+                            <Input defaultValue="Suhaib Mushtaq" type="text" />
                           </FormGroup>
                         </Col>
                       </Row>
@@ -441,11 +447,7 @@ export default function ProfilePage() {
                   </div>
                   <div className="description">
                     <h4 className="info-title">Find us at the office</h4>
-                    <p>
-                      Bld Mihail Kogalniceanu, nr. 8, <br />
-                      7652 Bucharest, <br />
-                      Romania
-                    </p>
+                    <p>{club?.location}</p>
                   </div>
                 </div>
                 <div className="info info-horizontal">
@@ -455,8 +457,8 @@ export default function ProfilePage() {
                   <div className="description">
                     <h4 className="info-title">Give us a ring</h4>
                     <p>
-                      Michael Jordan <br />
-                      +40 762 321 762 <br />
+                      {club?.ownerName} <br />
+                      {club?.mobileNo} <br />
                       Mon - Fri, 8:00-22:00
                     </p>
                   </div>

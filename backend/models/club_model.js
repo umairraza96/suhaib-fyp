@@ -12,6 +12,8 @@ var clubSchema = new Schema(
     picture: { type: String, default: "" },
     description: { type: String, default: "" },
     facilities: [{ type: String, default: "" }],
+    ownerEmail: { type: String, default: "" },
+    ownerName: { type: String, default: "" },
     isDeleted: { type: Boolean, default: false },
   },
   { timestamps: true }
